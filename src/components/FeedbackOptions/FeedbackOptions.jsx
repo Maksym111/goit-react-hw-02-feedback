@@ -1,16 +1,17 @@
 import PropTypes from 'prop-types';
+import { FeedbackBtn, ListBtn } from './FeedbackOptions.styled';
 
-export const FeedbackOptions = ({ options, handleClick }) => {
+const FeedbackOptions = ({ options, handleClick }) => {
   return (
-    <ul>
+    <ListBtn>
       {options.map(elem => (
         <li key={elem}>
-          <button type="button" name={elem} onClick={handleClick}>
+          <FeedbackBtn type="button" name={elem} onClick={handleClick}>
             {elem}
-          </button>
+          </FeedbackBtn>
         </li>
       ))}
-    </ul>
+    </ListBtn>
   );
 };
 
@@ -18,3 +19,5 @@ FeedbackOptions.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   handleClick: PropTypes.func.isRequired,
 };
+
+export default FeedbackOptions;

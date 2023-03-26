@@ -1,9 +1,9 @@
 // import { render } from '@testing-library/react';
 import { Component } from 'react';
-import { FeedbackOptions } from '../FeedbackOptions/FeedbackOptions';
-import { Notification } from '../Notification/Notification';
-import { Section } from '../Section/Section';
-import { Statistics } from '../Statistics/Statistics';
+import FeedbackOptions from '../FeedbackOptions/FeedbackOptions';
+import Notification from '../Notification/Notification';
+import Section from 'components/Section';
+import Statistics from 'components/Statistics';
 
 export class App extends Component {
   state = {
@@ -43,13 +43,14 @@ export class App extends Component {
     } = this;
 
     return (
-      <Section title="PLease leave feedback">
+      <Section title="Please leave feedback">
         <FeedbackOptions
           options={['good', 'neutral', 'bad']}
           handleClick={this.onLeaveFeedback}
         />
         {good || neutral || bad ? (
           <Statistics
+            title="Statistics"
             good={good}
             neutral={neutral}
             bad={bad}
@@ -57,7 +58,7 @@ export class App extends Component {
             positivePercentage={this.countPositiveFeedbackPercentage()}
           />
         ) : (
-          <Notification message="There is no feedback" />
+          <Notification message="There is no feedback :(" />
         )}
       </Section>
     );
