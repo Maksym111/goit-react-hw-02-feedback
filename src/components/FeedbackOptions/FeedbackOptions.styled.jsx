@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 const ListBtn = styled.ul`
   display: flex;
   gap: 30px;
-  margin-bottom: 20px;
 `;
 
 const FeedbackBtn = styled.button`
